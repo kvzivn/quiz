@@ -41,18 +41,47 @@ export default {
     body: '.025em',
     heading: '.01em'
   },
+  fontWeights: {
+    body: '400',
+    heading: '300'
+  },
   colors: {
-    primary: '#ffb3d2',
-    background: '#fff',
-    text: '#44474f',
+    primary: '#000',
+    background: '#fafafa',
+  },
+  text: {
+    heading: {
+      fontWeight: 'heading',
+      color: 'primary',
+      lineHeight: 'heading'
+    }
+  },
+  buttons: {
+    primary: {
+      px: 8,
+      py: 2,
+      fontSize: '16px',
+      fontWeight: '500',
+      backgroundColor: '#fff',
+      border: '2px solid',
+      borderColor: 'primary',
+      borderRadius: 0,
+      cursor: 'pointer',
+      color: 'primary',
+      letterSpacing: '.05em',
+      textTransform: 'uppercase',
+      transition: '.1s background-color linear, .1s color linear',
+      '&:hover': {
+        backgroundColor: 'primary',
+        color: 'white'
+      },
+      '&:focus': {
+        outline: 'none'
+      }
+    }
   },
   cards: {
-    width: 260,
-    boxShadow: '0 20px 30px 0 rgba(79,79,79,.1)',
-    backgroundColor: 'white',
-    fontSize: 1,
-    borderRadius: '8px',
-    p: 4
+
   },
   styles: {
     root: {
@@ -60,7 +89,7 @@ export default {
       p: 0,
       boxSizing: 'border-box',
       backgroundColor: 'background',
-      color: 'text',
+      color: 'primary',
       fontFamily: 'body',
       lineHeight: 'body',
       letterSpacing: 'body',
@@ -70,7 +99,8 @@ export default {
     },
     h1: {
       fontWeight: 700,
-      lineHeight: 1.15
+      lineHeight: 1.15,
+      color: 'primary'
     }
   }
 }
