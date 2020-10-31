@@ -1,0 +1,27 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx, Container, Grid, Box, Heading, Button } from 'theme-ui'
+import React, { useState } from 'react'
+import Quiz from './components/Quiz'
+import Intro from './components/Intro'
+import Stats from './components/Stats'
+import shuffleArray from './utils/shuffleArray'
+
+const App = ({ questionData }) => {
+  const [status, setStatus] = useState('quiz')
+  const questions = shuffleArray(questionData)
+
+  const QUIZ_STATES = {
+    intro: <Intro setStatus={setStatus} />,
+    quiz: <Quiz questions={questions} setStatus={setStatus} />,
+    finished: <Stats />
+  }
+
+  return (
+    <React.Fragment>
+      {QUIZ_STATES[status]}
+    </React.Fragment>
+  )
+}
+
+export default App
