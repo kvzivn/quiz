@@ -70,13 +70,17 @@ export default {
       color: 'primary',
       letterSpacing: '.05em',
       textTransform: 'uppercase',
-      transition: '.1s background-color linear, .1s color linear',
+      transition: 'all .15s ease-in-out',
       '&:hover': {
         backgroundColor: 'primary',
         color: 'white'
       },
       '&:focus': {
         outline: 'none'
+      },
+      ':disabled': {
+        opacity: .35,
+        pointerEvents: 'none'
       }
     }
   },
@@ -91,7 +95,7 @@ export default {
       px: [8, '4vw', '5vw'],
       textAlign: 'center',
       cursor: 'pointer',
-      transition: 'transform .15s ease-in-out, box-shadow .15s ease-in-out',
+      transition: 'all .15s ease-in-out',
       userSelect: 'none',
       '&:hover': {
         transform: 'scale(1.025)',

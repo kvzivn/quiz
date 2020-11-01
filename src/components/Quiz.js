@@ -7,9 +7,10 @@ import { useQuizDispatch } from '../context/quiz-context'
 export default ({ questions, setStatus }) => {
   const dispatch = useQuizDispatch()
   const timerRef = useRef(null)
+  const fiftyFiftyRef = useRef(null)
   const [questionNumber, setQuestionNumber] = useState(0)
   const [currentQuestion, setCurrentQuestion] = useState(questions[questionNumber])
-  const answerTime = 100
+  const answerTime = 15
 
   const answer1 = useRef(null)
   const answer2 = useRef(null)
@@ -41,12 +42,11 @@ export default ({ questions, setStatus }) => {
 
   const fiftyFifty = () => {
     const wrongAnswers = answerRefs.filter(ref => ref.current.id !== 'correct')
-
     // hide the first wrong answer
     wrongAnswers[0].current.style.opacity = 0
-
     // hide one of the other two
     wrongAnswers[Math.floor(Math.random() * 2) + 1].current.style.opacity = 0
+    fiftyFiftyRef.current.disabled = true
   }
 
   // start countdown
@@ -101,7 +101,6 @@ export default ({ questions, setStatus }) => {
         mt: '-2rem',
         mx: 'auto',
         px: [8, 6],
-        fontSize: '20px',
         'label': {
           marginLeft: '.5rem'
         }
@@ -138,10 +137,16 @@ export default ({ questions, setStatus }) => {
         })}
       </Grid>
 
-      <Flex sx={{ mx: 'auto' }}>
-        <Button onClick={() => fiftyFifty()}>50/50</Button>
-        <Button sx={{ ml: 8 }}>+10</Button>
-      </Flex>
+      <Button
+        ref={fiftyFiftyRef}
+        onClick={() => fiftyFifty()}
+        sx={{
+          maxWidth: '160px',
+          mx: 'auto',
+          fontSize: 4
+      }}>
+        50/50
+      </Button>
 
       <Timer sx={{ position: 'absolute', bottom: 0 }} />
     </Flex>
