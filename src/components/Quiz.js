@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, Grid, Flex, Box, Heading, Card } from 'theme-ui'
+import { jsx, Grid, Flex, Heading, Card, Button } from 'theme-ui'
 import { useState, useEffect, useRef} from 'react'
 import { useQuizDispatch } from '../context/quiz-context'
 
@@ -9,7 +9,19 @@ export default ({ questions, setStatus }) => {
   const timerRef = useRef(null)
   const [questionNumber, setQuestionNumber] = useState(0)
   const [currentQuestion, setCurrentQuestion] = useState(questions[questionNumber])
-  const answerTime = 5
+  const answerTime = 100
+
+  const answer1 = useRef(null)
+  const answer2 = useRef(null)
+  const answer3 = useRef(null)
+  const answer4 = useRef(null)
+
+  const answerRefs = [
+    answer1,
+    answer2,
+    answer3,
+    answer4
+  ]
 
   const checkAnswer = e => {
     if (e.target.value === currentQuestion.answer) {
@@ -27,6 +39,16 @@ export default ({ questions, setStatus }) => {
     }
   }
 
+  const fiftyFifty = () => {
+    const wrongAnswers = answerRefs.filter(ref => ref.current.id !== 'correct')
+
+    // hide the first wrong answer
+    wrongAnswers[0].current.style.opacity = 0
+
+    // hide one of the other two
+    wrongAnswers[Math.floor(Math.random() * 2) + 1].current.style.opacity = 0
+  }
+
   // start countdown
   useEffect(() => {
     setCurrentQuestion(questions[questionNumber])
@@ -41,6 +63,8 @@ export default ({ questions, setStatus }) => {
 
   // restart timer on question change
   useEffect(() => {
+    answerRefs.map(answer => answer.current.style.opacity = 1)
+
     const restartTimer = setTimeout(() => {
       timerRef.current.style.width = '100%'
     }, answerTime)
@@ -49,7 +73,7 @@ export default ({ questions, setStatus }) => {
   }, [currentQuestion])
 
   const Timer = () => (
-    <Box ref={timerRef} sx={{
+    <div ref={timerRef} sx={{
       width: 0,
       height: '8vh',
       backgroundColor: 'primary',
@@ -74,7 +98,7 @@ export default ({ questions, setStatus }) => {
       </Heading>
 
       <Grid columns={[1, 1, 2]} gap={8} sx={{
-        mt: '-4rem',
+        mt: '-2rem',
         mx: 'auto',
         px: [8, 6],
         fontSize: '20px',
@@ -86,7 +110,8 @@ export default ({ questions, setStatus }) => {
           return (
             <Card
               as="label"
-              id={currentQuestion.answer === answer && 'correct'}
+              ref={answerRefs[i]}
+              id={currentQuestion.answer === answer ? 'correct' : undefined}
               data-testid={i}
               htmlFor={i}
               key={i}
@@ -112,6 +137,11 @@ export default ({ questions, setStatus }) => {
           )
         })}
       </Grid>
+
+      <Flex sx={{ mx: 'auto' }}>
+        <Button onClick={() => fiftyFifty()}>50/50</Button>
+        <Button sx={{ ml: 8 }}>+10</Button>
+      </Flex>
 
       <Timer sx={{ position: 'absolute', bottom: 0 }} />
     </Flex>
