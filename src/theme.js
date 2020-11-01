@@ -12,7 +12,7 @@ export default {
     '3rem',
     '4rem'
   ],
-  breakpoints: ['600px', '900px', '1200px'],
+  breakpoints: ['600px', '900px', '1200px', '1600px'],
   layout: {
     container: {
       px: 6,
@@ -20,7 +20,7 @@ export default {
     }
   },
   fonts: {
-    body: 'Roboto, Helvetica, system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
+    body: 'Jayway, Raleway, system-ui, -apple-system, BlinkMacSystemFont, sans-serif',
     heading: 'inherit',
   },
   fontSizes: [
@@ -42,7 +42,7 @@ export default {
     heading: '.01em'
   },
   fontWeights: {
-    body: '400',
+    body: '300',
     heading: '300'
   },
   colors: {
@@ -60,7 +60,7 @@ export default {
     primary: {
       px: 8,
       py: 2,
-      fontSize: '16px',
+      fontSize: '20px',
       fontWeight: '500',
       backgroundColor: '#fff',
       border: '2px solid',

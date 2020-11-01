@@ -23,10 +23,10 @@ export default [
     question: "Which value is not part of Jayways core values?",
     answer: "Technology for People",
     answers: [
-      "Humble Brilliance.",
-      "Be the change.",
+      "Humble Brilliance",
+      "Be the change",
       "Technology for People",
-      "Respectful Autonomy."
+      "Respectful Autonomy"
     ]
   }
 ]
