@@ -36,17 +36,18 @@ export default ({ setStatus, numberOfQuestions }) => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: '400px'
+        height: ['300px', '400px'],
+        textAlign: 'center'
        }}>
-        <Heading sx={{ fontSize: '6rem', fontWeight: '700' }}>
+        <Heading sx={{ fontSize: ['4rem', '6rem'], fontWeight: '700' }}>
           {`${getPercentage()}`}%
         </Heading>
 
-        <Heading sx={{ fontSize: ['2.5rem', '3rem', '3.5rem'] }}>
+        <Heading sx={{ fontSize: ['1.5rem', '3rem', '3.5rem'] }}>
           {getQuizSummary()}
         </Heading>
 
-        <Text sx={{ fontSize: ['1.5rem', '1.75rem'] }}>
+        <Text sx={{ fontSize: ['1.25rem', '1.75rem'] }}>
           Correct answers: {correctAnswers} out of {numberOfQuestions}
         </Text>
 

@@ -64,8 +64,7 @@ export default ({ questions, setStatus }) => {
       pt: '6rem'
     }}>
       <Heading sx={{
-        maxWidth: [260, 800, '100%'],
-        mx: 'auto',
+        mx: [6, 'auto'],
         fontSize: ['18px', '20px', '2.5vw'],
         textAlign: 'center'
       }}>
@@ -91,7 +90,7 @@ export default ({ questions, setStatus }) => {
               fontSize: ['18px', '20px', '1.75vw'],
               borderRadius: '8px',
               py: '4vw',
-              px: ['2.5vw', '4vw', '5vw'],
+              px: [8, '4vw', '5vw'],
               textAlign: 'center',
               cursor: 'pointer',
               transition: 'transform .15s ease-in-out, box-shadow .15s ease-in-out',

@@ -15,11 +15,10 @@ export default ({ setStatus }) => {
       height: '100vh',
       placeItems: 'center',
       opacity: 0,
-      transition: 'opacity 1s ease-in-out',
-      transitionDelay: '.75s'
+      transition: 'opacity 1s ease-in-out .75s'
     }}>
       <Box sx={{ textAlign: 'center' }}>
-        <Heading sx={{ fontSize: '2.5rem'}}>
+        <Heading sx={{ fontSize: ['1.5rem', '2.5rem'] }}>
           Welcome to the Jayway Quiz
         </Heading>
 
