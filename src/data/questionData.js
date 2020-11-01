@@ -28,5 +28,25 @@ export default [
       "Technology for People",
       "Respectful Autonomy"
     ]
+  },
+  {
+    question: "In which of the following cities does Jayway not have an office?",
+    answer: "Singapore",
+    answers: [
+      "Copenhagen",
+      "Halmstad",
+      "Silicon Valley",
+      "Singapore"
+    ]
+  },
+  {
+    question: "What's the name of the conference that Jayway hosts every year?",
+    answer: "Öredev",
+    answers: [
+      "Nordic.js",
+      "The Conference",
+      "Öredev",
+      "PyCon Sweden"
+    ]
   }
 ]
