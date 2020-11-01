@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Jayway';
+  font-style: normal;
+  font-weight: 300;
+  font-display: block;
+  src: local('Jayway'), url('./fonts/jayway-regular.woff') format('woff');
+}
