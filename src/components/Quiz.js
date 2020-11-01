@@ -72,7 +72,6 @@ export default ({ questions, setStatus }) => {
       </Heading>
 
       <Grid columns={[1, 1, 2]} gap={8} sx={{
-        maxWidth: ['800px', '900px', '1000px'],
         mt: '-4rem',
         mx: 'auto',
         px: [8, 6],
