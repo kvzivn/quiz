@@ -13,7 +13,7 @@ export default ({ questions, setStatus }) => {
 
   const checkAnswer = e => {
     if (e.target.value === currentQuestion.answer) {
-      dispatch({ type: 'correctAnswer' })
+      dispatch({ type: 'correct' })
     }
 
     gotoNextQuestion()
@@ -41,7 +41,7 @@ export default ({ questions, setStatus }) => {
   useEffect(() => {
     const restartTimer = setTimeout(() => {
       timerRef.current.style.width = '100%'
-    }, 50)
+    }, answerTime)
 
     return () => window.clearTimeout(restartTimer)
   }, [currentQuestion])
@@ -98,7 +98,7 @@ export default ({ questions, setStatus }) => {
               userSelect: 'none',
               '&:hover': {
                 transform: 'scale(1.025)',
-                boxShadow: '0 20px 30px 0 rgba(41,41,41,.15)',
+                boxShadow: '0 24px 32px 0 rgba(41,41,41,.2)',
               }
             }}>
               <input

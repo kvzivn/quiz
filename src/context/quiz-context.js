@@ -5,7 +5,7 @@ const QuizDispatchContext = React.createContext()
 
 const quizReducer = (state, action) => {
   switch (action.type) {
-    case 'correctAnswer':
+    case 'correct':
       return { correctAnswers: state.correctAnswers + 1 }
     case 'reset':
       return { correctAnswers: 0 }
