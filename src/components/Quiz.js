@@ -27,6 +27,7 @@ export default ({ questions, setStatus }) => {
     }
   }
 
+  // start countdown
   useEffect(() => {
     setCurrentQuestion(questions[questionNumber])
     timerRef.current.style.width = '100%'
@@ -38,6 +39,7 @@ export default ({ questions, setStatus }) => {
     return () => window.clearTimeout(countDown)
   }, [questionNumber])
 
+  // restart timer on question change
   useEffect(() => {
     const restartTimer = setTimeout(() => {
       timerRef.current.style.width = '100%'
@@ -63,7 +65,7 @@ export default ({ questions, setStatus }) => {
       height: '100vh',
       pt: '6rem'
     }}>
-      <Heading sx={{
+      <Heading as="h1" className="questionText" sx={{
         mx: [6, 'auto'],
         fontSize: ['18px', '20px', '2.5vw'],
         textAlign: 'center'
@@ -82,23 +84,13 @@ export default ({ questions, setStatus }) => {
       }}>
         {currentQuestion.answers.map((answer, i) => {
           return (
-            <Card as="label" htmlFor={i} key={i} sx={{
-              width: '100%',
-              boxShadow: '0 20px 30px 0 rgba(79,79,79,.1)',
-              backgroundColor: 'white',
-              fontSize: ['18px', '20px', '1.75vw'],
-              borderRadius: '8px',
-              py: '4vw',
-              px: [8, '4vw', '5vw'],
-              textAlign: 'center',
-              cursor: 'pointer',
-              transition: 'transform .15s ease-in-out, box-shadow .15s ease-in-out',
-              userSelect: 'none',
-              '&:hover': {
-                transform: 'scale(1.025)',
-                boxShadow: '0 24px 32px 0 rgba(41,41,41,.2)',
-              }
-            }}>
+            <Card
+              as="label"
+              id={currentQuestion.answer === answer && 'correct'}
+              data-testid={i}
+              htmlFor={i}
+              key={i}
+            >
               <input
                 type="radio"
                 id={i}

@@ -81,7 +81,23 @@ export default {
     }
   },
   cards: {
-
+    primary: {
+      width: '100%',
+      boxShadow: '0 20px 30px 0 rgba(79,79,79,.1)',
+      backgroundColor: 'white',
+      fontSize: ['18px', '20px', '1.75vw'],
+      borderRadius: '8px',
+      py: '4vw',
+      px: [8, '4vw', '5vw'],
+      textAlign: 'center',
+      cursor: 'pointer',
+      transition: 'transform .15s ease-in-out, box-shadow .15s ease-in-out',
+      userSelect: 'none',
+      '&:hover': {
+        transform: 'scale(1.025)',
+        boxShadow: '0 24px 32px 0 rgba(41,41,41,.2)',
+      }
+    }
   },
   styles: {
     root: {
