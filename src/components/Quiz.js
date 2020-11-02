@@ -98,7 +98,6 @@ export default ({ questions, setStatus }) => {
       </Heading>
 
       <Grid columns={[1, 1, 2]} gap={8} sx={{
-        mt: '-2rem',
         mx: 'auto',
         px: [8, 6],
         'label': {
