@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Grid, Flex, Heading, Card, Button } from 'theme-ui'
-import { useState, useEffect, useRef} from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useQuizDispatch } from '../context/quiz-context'
 
 export default ({ questions, setStatus }) => {
@@ -46,6 +46,7 @@ export default ({ questions, setStatus }) => {
     wrongAnswers[0].current.style.opacity = 0
     // hide one of the other two
     wrongAnswers[Math.floor(Math.random() * 2) + 1].current.style.opacity = 0
+    // disable button
     fiftyFiftyRef.current.disabled = true
   }
 
@@ -143,7 +144,8 @@ export default ({ questions, setStatus }) => {
           maxWidth: '160px',
           mx: 'auto',
           fontSize: 4
-      }}>
+        }}
+      >
         50/50
       </Button>
 
